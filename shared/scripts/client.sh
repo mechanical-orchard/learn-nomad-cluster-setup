@@ -22,7 +22,7 @@ IP_ADDRESS=$(curl -H "Metadata-Flavor: Google" http://metadata/computeMetadata/v
 sed -i "s/IP_ADDRESS/$IP_ADDRESS/g" $CONFIGDIR/consul_client.hcl
 sed -i "s/RETRY_JOIN/$RETRY_JOIN/g" $CONFIGDIR/consul_client.hcl
 sudo cp $CONFIGDIR/consul_client.hcl $CONSULCONFIGDIR/consul.hcl
-sudo cp $CONFIGDIR/consul_$CLOUD.service /etc/systemd/system/consul.service
+sudo cp $CONFIGDIR/consul_gce.service /etc/systemd/system/consul.service
 
 sudo systemctl enable consul.service
 sudo systemctl start consul.service

@@ -22,6 +22,10 @@ build {
   sources = ["sources.googlecompute.hashistack"]
 
   provisioner "shell" {
+    inline = ["/usr/bin/cloud-init status --wait"]
+  }
+
+  provisioner "shell" {
     inline = ["sudo mkdir -p /ops/shared", "sudo chmod 777 -R /ops"]
   }
 
