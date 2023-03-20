@@ -108,7 +108,6 @@ resource "google_compute_instance" "server" {
   metadata_startup_script = templatefile("../shared/data-scripts/user-data-server.sh", {
     server_count              = var.server_count
     region                    = var.region
-    cloud_env                 = "gce"
     retry_join                = var.retry_join
     nomad_binary              = var.nomad_binary
     nomad_consul_token_id     = var.nomad_consul_token_id
@@ -149,7 +148,6 @@ resource "google_compute_instance" "client" {
 
   metadata_startup_script = templatefile("../shared/data-scripts/user-data-client.sh", {
     region                    = var.region
-    cloud_env                 = "gce"
     retry_join                = var.retry_join
     nomad_binary              = var.nomad_binary
     nomad_consul_token_secret = var.nomad_consul_token_secret

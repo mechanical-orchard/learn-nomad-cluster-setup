@@ -31,7 +31,7 @@ build {
   }
 
   provisioner "shell" {
-    environment_vars = ["INSTALL_NVIDIA_DOCKER=false", "CLOUD_ENV=gce"]
+    environment_vars = ["INSTALL_NVIDIA_DOCKER=false"]
     script           = "../shared/scripts/setup.sh"
   }
 }
